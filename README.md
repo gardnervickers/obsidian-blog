@@ -1,17 +1,59 @@
-# Quartz v5
+# Gardner Vickers' blog
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+This is a Quartz site generated from explicitly public notes in the Obsidian
+vault at `/Users/gardnervickers/Documents/General`.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+## Write
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+Create posts under `Blog/` in Obsidian. A note is eligible for publication only
+when its frontmatter contains:
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+```yaml
+publish: true
+```
 
-## Sponsors
+Both conditions are required: the note must be inside `Blog/`, and it must opt
+in with `publish: true`. Linked local images and PDFs are copied alongside the
+post. Nothing else in the vault is copied into this repository.
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+The vault template `templates/Blog Post.md` contains the standard frontmatter.
+New posts default to `publish: false`.
+
+## Preview
+
+From this repository:
+
+```sh
+nix run .#preview
+```
+
+This refreshes the public content snapshot and opens a development server at
+<http://localhost:8080>. Stop it with Ctrl-C.
+
+## Validate
+
+```sh
+nix run .#check
+```
+
+## Publish
+
+After reviewing the preview:
+
+```sh
+nix run .#publish
+```
+
+This refreshes the public snapshot, builds it, checks the diff, commits the
+result, and pushes it.
+
+The repository starts private and the Pages workflow starts as manual-only.
+When the site is ready to launch, make the repository public (or use a GitHub
+plan that supports Pages for private repositories), enable Pages, and add the
+documented `push` trigger for `main` in `.github/workflows/deploy.yml`.
+
+To use a different vault temporarily, set `OBSIDIAN_VAULT`:
+
+```sh
+OBSIDIAN_VAULT=/path/to/vault nix run .#preview
+```
