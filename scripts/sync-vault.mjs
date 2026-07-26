@@ -111,7 +111,10 @@ async function processNote(notePath, copiedAssets) {
     output = output.replace(match[0], `![${match[1]}](${encodeURI(publishedTarget)}${match[3]})`)
   }
 
-  const relative = safeRelative(blogRoot, notePath)
+  const sourceRelative = safeRelative(blogRoot, notePath)
+  const relative = sourceRelative.startsWith(`Drafts${path.sep}`)
+    ? path.join("posts", sourceRelative.slice(`Drafts${path.sep}`.length))
+    : sourceRelative
   const destination = path.join(stagingRoot, relative)
   await mkdir(path.dirname(destination), { recursive: true })
   await writeFile(destination, output)

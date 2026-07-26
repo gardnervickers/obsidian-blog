@@ -17,7 +17,8 @@ in with `publish: true`. Linked local images and PDFs are copied alongside the
 post. Nothing else in the vault is copied into this repository.
 
 The vault template `templates/Blog Post.md` contains the standard frontmatter.
-New posts default to `publish: false`.
+New posts default to `publish: false`. Notes can remain in `Blog/Drafts` after
+publication; the sync step gives them a clean public path under `/posts/`.
 
 ## Preview
 

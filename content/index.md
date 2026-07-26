@@ -8,4 +8,4 @@ Notes on building machines, hardware, and distributed systems.
 
 ## Posts
 
-_Posts are coming soon._
+- [Welcome](posts/Welcome)
