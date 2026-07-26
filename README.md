@@ -1,7 +1,8 @@
 # Gardner Vickers' blog
 
-This is a Quartz site generated from explicitly public notes in the Obsidian
-vault at `/Users/gardnervickers/Documents/General`.
+This is the source for [blog.vickers.me](https://blog.vickers.me), a Quartz site
+generated from explicitly public notes in the Obsidian vault at
+`/Users/gardnervickers/Documents/General`.
 
 ## Write
 
@@ -48,10 +49,7 @@ nix run .#publish
 This refreshes the public snapshot, builds it, checks the diff, commits the
 result, and pushes it.
 
-The repository starts private and the Pages workflow starts as manual-only.
-When the site is ready to launch, make the repository public (or use a GitHub
-plan that supports Pages for private repositories), enable Pages, and add the
-documented `push` trigger for `main` in `.github/workflows/deploy.yml`.
+GitHub Pages automatically deploys successful pushes to `main`.
 
 To use a different vault temporarily, set `OBSIDIAN_VAULT`:
 

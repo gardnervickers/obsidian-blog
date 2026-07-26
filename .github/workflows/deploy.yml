@@ -1,7 +1,9 @@
 name: Deploy Quartz site to GitHub Pages
 
 on:
-  # Add a push trigger for main when the site is ready to go public.
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
