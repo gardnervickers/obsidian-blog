@@ -1,6 +1,6 @@
 ---
 title: Gardner Vickers
-description: Notes on building machines, hardware, and distributed systems.
+description: Notes on machining, hardware, and distributed systems.
 publish: true
 ---
 
